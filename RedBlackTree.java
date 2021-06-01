@@ -320,6 +320,7 @@ class RedBlackTree
             }  
             System.out.println("\nPress 'y' or 'Y' to continue \n");  
             choice = scan.next().charAt(0);                          
-        } while (choice == 'Y'|| choice == 'y');                 
+        } while (choice == 'Y'|| choice == 'y'); 
+        scan.close();                
     }  
 }  

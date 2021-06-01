@@ -28,6 +28,7 @@ public class reverseWords {
             }
         }
         System.out.println(ans);
+        sc.close();
     }
     
 }
