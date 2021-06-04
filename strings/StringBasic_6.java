@@ -11,7 +11,8 @@ public class StringBasic_6 {
 
         int al[]=new int[256];
         
-
+        
+        
         for(char c:s1.toCharArray()){
             int index = (int) c;
             al[index]++;
@@ -43,7 +44,7 @@ public class StringBasic_6 {
         Scanner sc = new Scanner(System.in);
         String str = new String();
         str = sc.nextLine();
-        
+        sc.hasNext();
         sc.close();
         return str;
     }
@@ -51,6 +52,7 @@ public class StringBasic_6 {
     
     public static void main(String[] args) {
         String str1 = ToTakeString();
+        
         String str2 = ToTakeString();
         Boolean anagram = Anagram(str1, str2);
         AnagramOrNot(anagram);
