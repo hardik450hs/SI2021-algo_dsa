@@ -1,30 +1,33 @@
 package LinkedList.SinglyLinkedList;
 
-public class LinkedList {
-    static Link head;
+import java.util.Stack;
+
+public class LinkedList<E> {
+    protected Link<E> head;
 
     public LinkedList() {
         head = null;
     }
 
-    public void Add(int data) {
+    public void Add(E data) {
 
-        Link newLink = new Link(data);
+        Link<E> newLink = new Link<E>(data);
 
         if (isEmpty()) {
             head = newLink;
 
         } else {
-            Link current = head;
+            Link<E> current = head;
             while (current.next != null) {
                 current = current.next;
             }
             current.next = newLink;
+            
         }
     }
 
-    public void InsertFirst(int data) {
-        Link newData = new Link(data);
+    public void InsertFirst(E data) {
+        Link<E> newData = new Link<E>(data);
         newData.next = head;
         head = newData;
     }
@@ -34,7 +37,7 @@ public class LinkedList {
             return;
 
         } else {
-            Link current = head;
+            Link<E> current = head;
             int count = 1;
             while (count < size() - 1) {
                 current = current.next;
@@ -49,7 +52,7 @@ public class LinkedList {
     }
 
     public void removeFirst() {
-        Link current = head;
+        Link<E> current = head;
         if (isEmpty()) {
             return;
         } else if (size() == 1) {
@@ -59,8 +62,31 @@ public class LinkedList {
         }
     }
 
-    public void find(int key) {
-        Link current = head;
+    public void removeAt(int index) { // get
+
+        Link<E> current = head;
+        Link<E> priv = new Link<>(null);
+        int count = 0;
+        if (size() < index + 1) {
+            System.out.println("Invalid Index");
+            return;
+        }
+        while (count <= index) {
+            if (count == index - 1) {
+                priv = current;
+            } else if (count == index) {
+                priv.next = current.next;
+                return;
+            }
+            current = current.next;
+            count++;
+
+        }
+
+    }
+
+    public void find(E key) {
+        Link<E> current = head;
         if (isEmpty()) {
             System.out.println("List is Empty.");
         } else {
@@ -78,7 +104,7 @@ public class LinkedList {
 
     public void findAt(int index) { // get
 
-        Link current = head;
+        Link<E> current = head;
         int count = 0;
         if (size() < index + 1) {
             System.out.println("Invalid Index");
@@ -96,10 +122,30 @@ public class LinkedList {
 
     }
 
-    public void set(int data, int index) {
+    public void findFromEnd(int index) {
+
+        Link<E> current = head;
+        int count = size() - 1;
+        if (size() < index + 1) {
+            System.out.println("Invalid Index");
+            return;
+        }
+        while (count >= index) {
+            if (count == index) {
+                System.out.println(current.Data);
+                return;
+            }
+            current = current.next;
+            count--;
+
+        }
+
+    }
+
+    public void set(E data, int index) {
         int count = 1;
-        Link cuurent = head;
-        Link newlink = new Link(data);
+        Link<E> cuurent = head;
+        Link<E> newlink = new Link<E>(data);
         if (index > size() || index < 0) {
             System.out.println("Not possible");
         } else if (index == size()) {
@@ -117,8 +163,18 @@ public class LinkedList {
         }
     }
 
+    public void DisplayMiddle() {
+        int index = size();
+        if (index % 2 != 0) {
+            findAt(index / 2);
+        } else {
+            findAt((index / 2) - 1);
+            findAt(index / 2);
+        }
+    }
+
     public int size() {
-        Link current = head;
+        Link<E> current = head;
         int count = 0;
 
         if (isEmpty()) {
@@ -134,10 +190,11 @@ public class LinkedList {
     }
 
     public void DisplayLink() {
-        Link current = head;
+        Link<E> current = head;
         while (current != null) {
             current.Display();
             current = current.next;
+            
         }
         System.out.println();
     }
@@ -145,4 +202,33 @@ public class LinkedList {
     public boolean isEmpty() {
         return head == null;
     }
+
+    public void Pelindrome() {
+        Stack<E> s = new Stack<E>();
+        Link<E> current = head;
+        boolean ispalindrome = true;
+        if (isEmpty()) {
+            System.out.println("Empty");
+            return;
+        }
+        while (current != null) {
+            s.push((E)current.Data);
+            current = current.next;
+        }
+        current =head;
+        while(current!=null){
+            if(s.pop()!=current.Data){
+                ispalindrome=false;
+                break;
+            }
+            current=current.next;
+        }
+        if (ispalindrome == true) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("not Palindrome");
+        }
+    }
+
+    
 }

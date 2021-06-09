@@ -1,9 +1,10 @@
 package LinkedList.SinglyLinkedList;
 
-public class Link {
-    int Data;
-    Link next;
-    public Link(int Data){
+public class Link<E> {
+    E Data;
+    Link<E> next;
+    
+    public Link(E Data){
         this.Data=Data;
         this.next=null;
     }
