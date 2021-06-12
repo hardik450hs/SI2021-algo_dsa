@@ -22,7 +22,7 @@ public class LinkedList<E> {
                 current = current.next;
             }
             current.next = newLink;
-            
+
         }
     }
 
@@ -194,7 +194,17 @@ public class LinkedList<E> {
         while (current != null) {
             current.Display();
             current = current.next;
-            
+
+        }
+        System.out.println();
+    }
+
+    public void DisplayLink(Link<E> L) {
+        Link<E> current = L;
+        while (current != null) {
+            current.Display();
+            current = current.next;
+
         }
         System.out.println();
     }
@@ -212,16 +222,16 @@ public class LinkedList<E> {
             return;
         }
         while (current != null) {
-            s.push((E)current.Data);
+            s.push((E) current.Data);
             current = current.next;
         }
-        current =head;
-        while(current!=null){
-            if(s.pop()!=current.Data){
-                ispalindrome=false;
+        current = head;
+        while (current != null) {
+            if (s.pop() != current.Data) {
+                ispalindrome = false;
                 break;
             }
-            current=current.next;
+            current = current.next;
         }
         if (ispalindrome == true) {
             System.out.println("Palindrome");
@@ -230,5 +240,43 @@ public class LinkedList<E> {
         }
     }
 
-    
+    public Link<E> ReverseLL() { //Itterative Method
+        return ReverseLL(size());
+    }
+
+    public Link<E> ReverseLL(int n) { //Itterative Method up to N
+        Link<E> current = head;
+        Link<E> Prev = null;
+        Link<E> Next = null;
+        int count=0;
+        while (current != null && count < n ) {
+            Next = current.next;
+            current.next = Prev;
+            Prev = current;
+            current = Next;
+            count++;
+        }
+        head.next=Next;
+        return Prev;
+    }
+
+    public Link<E> ReverseLL(int n,Link<E> L) { //Itterative Method up to N and next elements are reversed too
+        if(head == null) return null;
+        Link<E> current = head;
+        Link<E> Prev = null;
+        Link<E> Next = null;
+        int count=0;
+        while (current != null && count < n ) {
+            Next = current.next;
+            current.next = Prev;
+            Prev = current;
+            current = Next;
+            count++;
+        }
+        if(Next!=null){
+            head.next=ReverseLL(n, Next);
+        }
+        //DisplayLink(Prev);
+        return Prev;
+    }
 }

@@ -11,11 +11,13 @@ public class mainClass {
         I.Add(3);
         I.Add(4);
         I.Add(2);
-        I.Add(1);
+        I.Add(8);
         //.Pelindrome();
         I.DisplayLink();
-        //I.circular();
+        
         //I.DisplayLink();
+        I.head = I.ReverseLL();
+        I.DisplayLink();
         
 
         // LinkedList<String> ls = new LinkedList<String>();
