@@ -28,6 +28,7 @@ public class LinkedQueue<E> {
             Node<E> temp = new Node<E>();
             temp = top;
             top = top.next;
+            temp.next=null;
             size--;
             if(top==null) rear=null;
             return temp.data;

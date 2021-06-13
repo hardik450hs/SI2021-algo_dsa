@@ -11,9 +11,13 @@ public class MainClass {
         System.out.println(d.size());
         System.out.println(d.peekFront());
         System.out.println(d.peekRear());
-        d.polFront();
-        d.polRear();
+        //d.polFront();
+        //d.polRear();
         d.Display();
+        System.out.println();
+        d.Display1();
+        System.out.println();
+        System.out.println(d.size());
     }
     
     

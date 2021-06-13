@@ -48,6 +48,8 @@ public class LinkedDeque<E> {
         temp = front;
         front=front.next;
         front.prev=null;
+        //temp.next=null;
+        System.out.println();
         size--;
         if(front==null)rear=null;
         return temp.data;
@@ -59,6 +61,7 @@ public class LinkedDeque<E> {
         temp = rear;
         rear=rear.prev;
         rear.next=null;
+        //temp.prev=null;
         size--;
         if(front==null)rear=null;
         return temp.data;
@@ -82,6 +85,15 @@ public class LinkedDeque<E> {
         while(temp!=null){
             System.out.print(temp.data +" ");
             temp=temp.next;
+        }
+    }
+
+    public void Display1(){
+        Node<E> temp = new Node<E>();
+        temp=rear;
+        while(temp!=null){
+            System.out.print(temp.data +" ");
+            temp=temp.prev;
         }
     }
 }
