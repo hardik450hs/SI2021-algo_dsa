@@ -12,7 +12,7 @@ public class InsertionSort
 	
 	public static void insertionSort(int[] a)
 	{
-		int curr_item_index, insert_index, curr_item, temp;
+		int curr_item_index, insert_index, curr_item;
 		for (curr_item_index=1; curr_item_index<a.length; curr_item_index++)
 		{
 			insert_index=curr_item_index;
