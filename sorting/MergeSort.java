@@ -54,7 +54,7 @@ public class MergeSort {
         }
     }
     public static void main(String[] args) {
-        int a[]={5,3,2,1};
+        int a[]={5,8,-1,-6,100,18,5,14,-6,1,18};
         Mergesort(a, 0, a.length-1);
         Display(a);
     }

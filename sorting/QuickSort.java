@@ -8,7 +8,7 @@ public class QuickSort {
         a[j]=temp;
     }
 
-    public static void Quicksort(int a[],int l,int h){
+    public void Quicksort(int a[],int l,int h){
         if(l<h){
             int pivot = Partition(a, l, h);
             Quicksort(a, l, pivot-1);
@@ -37,7 +37,8 @@ public class QuickSort {
     }
     public static void main(String[] args) {
         int a[]={7,6,5,4,3,2,1};
-        Quicksort(a, 0, (a.length)-1);
+        QuickSort Q = new QuickSort();
+        Q.Quicksort(a, 0, (a.length)-1);
         Display(a);
 
     }
