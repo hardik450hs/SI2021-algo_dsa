@@ -1,11 +1,11 @@
 package tree.binaryTree;
 
 public class Node {
-    int key;
-    Node left,right;
+    public int key;
+    public Node left, right;
 
-    public Node(int data){
-        this.key=data;
-        left=right=null;
+    public Node(int data) {
+        key = data;
+        left = right = null;
     }
 }
